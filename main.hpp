@@ -9,25 +9,23 @@
 #include <iomanip>
 using namespace std;
 
-int findcross(int[][10]);
 void printout(int[][10], int);
 
 int findcross(int M[][10])
 {
-   int total = 0;
+   int count = 0;
    for (int i = 1; i < 9; i++){
         for (int j = 1; j < 9; j++){
-            if (M[i][j] == i && 
-                M[i-1][j]== 1 && 
-                M[i+ 1][j] == 1 && 
-                M[i][j-1] == 1 && 
-                M[i][j+1]==1)
-                {
-                    total++;
-                }
+            if (M[i][j] == 1 &&
+                M[i - 1][j] == 1 &&
+                M[i + 1][j] == 1 &&
+                M[i][j - 1] == 1 &&
+                M[i][j + 1] == 1){
+                count++;
+            }
         }
     }
-   return total;
+    return count;
 }
 
 void printout(int M[][10], int cnt)
